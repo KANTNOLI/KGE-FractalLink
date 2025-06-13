@@ -14,12 +14,15 @@ const isValidLogin = (login: string): boolean => {
 function Login() {
     const Form = useRef<HTMLFormElement>(null)
 
+
+    const [Test, setTest] = useState<string>("")
+
     const [Login, setLogin] = useState<string>("")
     const [Email, setEmail] = useState<string>("")
     const [Pass, setPass] = useState<string>("")
     const [PassRep, setPassRep] = useState<string>("")
 
-    const [LoginType, setLoginType] = useState<boolean>(false)
+    const [LoginType, setLoginType] = useState<boolean>(true)
 
     const login = useCallback(
         (event: SubmitEvent) => {
@@ -31,21 +34,22 @@ function Login() {
                 console.log(123);
 
                 axios.post("https://hubabuba.space/api/createAccount",
-                    { login: Login, pass: Pass, mail: Email },
-                    { withCredentials: true, headers: { 'Content-Type': 'application/json' } }
-                )
-                    .then(res => console.log(res.data))
+                    { login: Login, pass: Pass, mail: Email })
+                    .then(res => {
+
+                        setTest(res.data.clientToken)
+                        console.log(res.data)
+                    })
                     .catch(err => console.error("Ошибка при создании аккаунта:", err));
 
 
 
             } else if (isValidPass(Pass) && isValidLogin(Login) && !LoginType) {
 
-
                 axios.get("https://hubabuba.space/api/me", {
-                    withCredentials: true
-                }).then(res => console.log(res))
-                // логин
+                    headers: { Authorization: `Bearer ${Test}` }
+                }).then(res => console.log(res.data));
+
                 console.log(LoginType);
                 console.log(Pass);
             }
@@ -67,13 +71,14 @@ function Login() {
     return (
         <section className={style.body}>
             <form ref={Form} className={style.reg}>
+
+            {LoginType ? <> <p className={style.title}>Mail</p>
+            <input className={style.inp} type="email" value={Email} onChange={(event) => setEmail(event.target.value)} /></> : null}
+
                 <p className={style.title}>Login</p>
                 <input className={style.inp} type="text" value={Login} onChange={(event) => setLogin(event.target.value)} />
 
-                {LoginType ? <> <p className={style.title}>Mail</p>
-                    <input className={style.inp} type="email" value={Email} onChange={(event) => setEmail(event.target.value)} /></> : null}
-
-
+             
                 <p className={style.title}>Password</p>
                 <input className={style.inp} type="password" value={Pass} onChange={(event) => setPass(event.target.value)} />
 
@@ -85,7 +90,7 @@ function Login() {
 
                 <div>
                     <button className={style.button} type="submit">next</button>
-                    <button className={style.button} type="button" onClick={() => setLoginType((before) => !before)}>{LoginType ? "1 Sign in" : "0 Sign up"}</button>
+                    <button className={style.button} type="button" onClick={() => setLoginType((before) => !before)}>{LoginType ? "Sign in" : "Sign up"}</button>
                 </div>
             </form>
         </section>

@@ -4,6 +4,14 @@ import { useSearchParams } from "react-router";
 import style from "./App.module.scss"
 import Pages from "./components/Pages";
 import Login from "./components/Login";
+import { useEffect } from "react";
+
+interface KeySettingsItf {
+  OSRequiredApp: boolean,
+  language: "ru" | "eu",
+  clientToken: string
+}
+const KEY_SETTINGS = "643f11b661aa625c"
 
 function App() {
   const [searchParams] = useSearchParams();
@@ -16,7 +24,19 @@ function App() {
     }
   }
 
-  const test: boolean = true
+  const test: boolean = false
+
+  useEffect(() => {
+ 
+
+
+  }, [])
+
+  localStorage.setItem(KEY_SETTINGS, JSON.stringify({
+    OSRequiredApp: true,
+    language: "eu",
+    clientToken: ""
+  }))
 
   return (
     <section className={style.body}>
