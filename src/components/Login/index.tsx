@@ -32,7 +32,7 @@ function Login() {
 
                 axios.post("https://hubabuba.space/api/createAccount",
                     { login: Login, pass: Pass, mail: Email },
-                    { withCredentials: false, headers: { 'Content-Type': 'application/json' } }
+                    { withCredentials: true, headers: { 'Content-Type': 'application/json' } }
                 )
                     .then(res => console.log(res.data))
                     .catch(err => console.error("Ошибка при создании аккаунта:", err));
@@ -43,7 +43,7 @@ function Login() {
 
 
                 axios.get("https://hubabuba.space/api/me", {
-                    withCredentials: false
+                    withCredentials: true
                 }).then(res => console.log(res))
                 // логин
                 console.log(LoginType);
