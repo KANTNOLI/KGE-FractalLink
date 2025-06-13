@@ -8,25 +8,25 @@ interface pageList {
 }
 
 function Pages() {
-    const pagesList = [{
+    const pagesList: pageList[] = [{
         img: "https://hubabuba.space/55-55-55-55-5555/assets/img/Agent_ID.png",
-        title: "Agent_ID",
+        title: "Agent ID",
         type: "Agent_ID"
     }, {
         img: "https://hubabuba.space/55-55-55-55-5555/assets/img/LiveTunnel.png",
-        title: "LiveTunnel",
+        title: "Live Tunnel",
         type: "LiveTunnel"
     }, {
         img: "https://hubabuba.space/55-55-55-55-5555/assets/img/HackCred.png",
-        title: "HackCred",
+        title: "Hack Cred",
         type: "HackCred"
     }, {
         img: "https://hubabuba.space/55-55-55-55-5555/assets/img/HeatMap.png",
-        title: "HeatMap",
+        title: "Heat Map",
         type: "HeatMap"
     }, {
         img: "https://hubabuba.space/55-55-55-55-5555/assets/img/TrustList.png",
-        title: "TrustList",
+        title: "Trust List",
         type: "TrustList"
     }]
     const [searchParams] = useSearchParams();

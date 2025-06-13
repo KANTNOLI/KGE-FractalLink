@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router";
 
 import style from "./App.module.scss"
 import Pages from "./components/Pages";
-import { useEffect } from "react";
+import Login from "./components/Login";
 
 function App() {
   const [searchParams] = useSearchParams();
@@ -16,11 +16,16 @@ function App() {
     }
   }
 
+  const test: boolean = false
 
   return (
     <section className={style.body}>
-      <Pages></Pages>
-      {routing()}
+      {!test ? <Login /> :
+        <>
+          <Pages />
+          {routing()}
+        </>}
+
     </section>
   )
 }
