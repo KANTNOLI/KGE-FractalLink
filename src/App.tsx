@@ -4,7 +4,8 @@ import { useSearchParams } from "react-router";
 import style from "./App.module.scss"
 import Pages from "./components/Pages";
 import Login from "./components/Login";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 interface KeySettingsItf {
   OSRequiredApp: boolean,
@@ -13,8 +14,45 @@ interface KeySettingsItf {
 }
 const KEY_SETTINGS = "643f11b661aa625c"
 
+// interface authValidateIntf {
+//   id: string,
+//   login: string,
+//   result: "login" | "exit"
+// }
+
+
 function App() {
   const [searchParams] = useSearchParams();
+  const [Settings, setSettings] = useState<KeySettingsItf>(JSON.parse(localStorage.getItem(KEY_SETTINGS) || "{}"))
+  const [SkipLogin, setSkipLogin] = useState<boolean>(false)
+
+  useEffect(() => {
+    if (Settings && Settings.clientToken) {
+      axios.get("https://hubabuba.space/api/authValidate", {
+        headers: { Authorization: `Bearer ${Settings.clientToken}` }
+      }).then(res => {
+        if (res.data.result === "login") {
+          localStorage.setItem(KEY_SETTINGS, JSON.stringify(Settings))
+          setSkipLogin(true)
+        }
+      });
+    } else if (!Settings.language) {
+      console.log(2);
+      localStorage.setItem(KEY_SETTINGS, JSON.stringify({
+        OSRequiredApp: true,
+        language: "eu",
+        clientToken: ""
+      }))
+      setSettings({
+        OSRequiredApp: true,
+        language: "eu",
+        clientToken: ""
+      })
+    }
+    // Проверка входили ли мы?
+
+  }, [Settings])
+
   const routing = () => {
     switch (searchParams.get('55-55-55-55-5555')) {
       case "Agent_ID":
@@ -24,27 +62,13 @@ function App() {
     }
   }
 
-  const test: boolean = false
-
-  useEffect(() => {
- 
-
-
-  }, [])
-
-  localStorage.setItem(KEY_SETTINGS, JSON.stringify({
-    OSRequiredApp: true,
-    language: "eu",
-    clientToken: ""
-  }))
-
   return (
     <section className={style.body}>
-      {!test ? <Login /> :
+      {SkipLogin ?
         <>
           <Pages />
           {routing()}
-        </>}
+        </> : <Login setSettings={(value: string) => setSettings((before) => ({ ...before, clientToken: value }))} />}
 
     </section>
   )

@@ -10,15 +10,15 @@ const isValidLogin = (login: string): boolean => {
     return login.length > 5;
 };
 
+interface props {
+    setSettings: (value: string) => void
+}
 
-function Login() {
+function Login({ setSettings }: props) {
     const Form = useRef<HTMLFormElement>(null)
 
-
-    const [Test, setTest] = useState<string>("")
-
     const [Login, setLogin] = useState<string>("")
-    const [Email, setEmail] = useState<string>("")
+    const [Email, setEmail] = useState<string>("zahargysev02@gmail.com")
     const [Pass, setPass] = useState<string>("")
     const [PassRep, setPassRep] = useState<string>("")
 
@@ -29,20 +29,13 @@ function Login() {
             event.preventDefault()
 
             if (LoginType && Pass === PassRep && isValidPass(Pass) && isValidPass(PassRep) && isValidLogin(Login)) {
-                // регистр
-
-                console.log(123);
-
-                axios.post("https://hubabuba.space/api/createAccount",
-                    { login: Login, pass: Pass, mail: Email })
+                // регистрация
+                console.log("LOAD");
+                axios.post("https://hubabuba.space/api/createAccount", { login: Login, pass: Pass, mail: Email })
                     .then(res => {
-
-                        setTest(res.data.clientToken)
-                        console.log(res.data)
+                        setSettings(res.data.clientToken)
                     })
                     .catch(err => console.error("Ошибка при создании аккаунта:", err));
-
-
 
             } else if (isValidPass(Pass) && isValidLogin(Login) && !LoginType) {
 
@@ -54,7 +47,7 @@ function Login() {
                 console.log(Pass);
             }
         },
-        [Email, LoginType, Pass, PassRep],
+        [Email, Login, LoginType, Pass, PassRep, setSettings],
     )
 
 
@@ -72,13 +65,13 @@ function Login() {
         <section className={style.body}>
             <form ref={Form} className={style.reg}>
 
-            {LoginType ? <> <p className={style.title}>Mail</p>
-            <input className={style.inp} type="email" value={Email} onChange={(event) => setEmail(event.target.value)} /></> : null}
+                {LoginType ? <> <p className={style.title}>Mail</p>
+                    <input className={style.inp} type="email" value={Email} onChange={(event) => setEmail(event.target.value)} /></> : null}
 
                 <p className={style.title}>Login</p>
                 <input className={style.inp} type="text" value={Login} onChange={(event) => setLogin(event.target.value)} />
 
-             
+
                 <p className={style.title}>Password</p>
                 <input className={style.inp} type="password" value={Pass} onChange={(event) => setPass(event.target.value)} />
 
