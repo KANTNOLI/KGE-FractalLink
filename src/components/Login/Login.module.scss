@@ -29,6 +29,21 @@
         }
 
 
+        .inpError {
+            margin-top: 5px;
+            width: 270px;
+            height: 35px;
+            border-radius: 5px;
+            font-size: 20px;
+            font-weight: bold;
+            padding-left: 5px;
+            color: black;
+            background-color: #B87333;
+            border: 2px solid black;
+
+            transition: .5s ease;
+        }
+
         .inp {
             margin-top: 5px;
             width: 270px;
@@ -40,7 +55,9 @@
             color: black;
             background-color: white;
             border: 2px solid black;
+            transition: .2s ease;
         }
+
 
         .desc {
             margin-top: 20px;

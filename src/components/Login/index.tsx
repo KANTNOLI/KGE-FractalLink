@@ -22,6 +22,8 @@ function Login({ setSettings }: props) {
     const [Pass, setPass] = useState<string>("")
     const [PassRep, setPassRep] = useState<string>("")
 
+    const [ErrorLoading, setErrorLoading] = useState<number>(-1)
+
     const [LoginType, setLoginType] = useState<boolean>(true)
 
     const login = useCallback(
@@ -35,16 +37,25 @@ function Login({ setSettings }: props) {
                     .then(res => {
                         setSettings(res.data.clientToken)
                     })
-                    .catch(err => console.error("Ошибка при создании аккаунта:", err));
+                    .catch(err => {
+                        const { type } = err.response.data;
+                        setErrorLoading(type)
+                        setTimeout(() => {
+                            setErrorLoading(-1)
+                        }, 3000);
+
+                    });
 
             } else if (isValidPass(Pass) && isValidLogin(Login) && !LoginType) {
-
-                axios.get("https://hubabuba.space/api/me", {
-                    headers: { Authorization: `Bearer ${Test}` }
-                }).then(res => console.log(res.data));
-
-                console.log(LoginType);
-                console.log(Pass);
+                axios.post("https://hubabuba.space/api/me", { login: Login, pass: Pass })
+                    .then(res => console.log(res.data))
+                    .catch(err => {
+                        const { type } = err.response.data;
+                        setErrorLoading(type)
+                        setTimeout(() => {
+                            setErrorLoading(-1)
+                        }, 3000);
+                    });;
             }
         },
         [Email, Login, LoginType, Pass, PassRep, setSettings],
@@ -66,14 +77,14 @@ function Login({ setSettings }: props) {
             <form ref={Form} className={style.reg}>
 
                 {LoginType ? <> <p className={style.title}>Mail</p>
-                    <input className={style.inp} type="email" value={Email} onChange={(event) => setEmail(event.target.value)} /></> : null}
+                    <input className={ErrorLoading == 0 ? style.inpError : style.inp} type="email" value={Email} onChange={(event) => setEmail(event.target.value)} /></> : null}
 
                 <p className={style.title}>Login</p>
-                <input className={style.inp} type="text" value={Login} onChange={(event) => setLogin(event.target.value)} />
+                <input className={ErrorLoading == 0 ? style.inpError : ErrorLoading == 1 ? style.inpError : style.inp} type="text" value={Login} onChange={(event) => setLogin(event.target.value)} />
 
 
                 <p className={style.title}>Password</p>
-                <input className={style.inp} type="password" value={Pass} onChange={(event) => setPass(event.target.value)} />
+                <input className={ErrorLoading != 0 ? style.inpError : style.inp} type="password" value={Pass} onChange={(event) => setPass(event.target.value)} />
 
                 {LoginType ? <> <p className={style.title}>Password Replay</p>
                     <input className={style.inp} type="password" value={PassRep} onChange={(event) => setPassRep(event.target.value)} /></> : null}
