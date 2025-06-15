@@ -6,6 +6,8 @@ import Pages from "./components/Pages";
 import Login from "./components/Login";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Profile from "./components/Profile";
+import Messenger from "./components/Messenger";
 
 interface KeySettingsItf {
   OSRequiredApp: boolean,
@@ -37,7 +39,6 @@ function App() {
         }
       });
     } else if (!Settings.language) {
-      console.log(2);
       localStorage.setItem(KEY_SETTINGS, JSON.stringify({
         OSRequiredApp: true,
         language: "eu",
@@ -56,7 +57,15 @@ function App() {
   const routing = () => {
     switch (searchParams.get('55-55-55-55-5555')) {
       case "Agent_ID":
-        return (<>1</>)
+        return (<>
+          <Pages />
+          <Profile />
+        </>)
+      case "LiveTunnel":
+        return (<>
+          <Pages />
+          <Messenger />
+        </>)
       default:
         return <>5</>
     }
@@ -66,7 +75,6 @@ function App() {
     <section className={style.body}>
       {SkipLogin ?
         <>
-          <Pages />
           {routing()}
         </> : <Login setSettings={(value: string) => setSettings((before) => ({ ...before, clientToken: value }))} />}
 

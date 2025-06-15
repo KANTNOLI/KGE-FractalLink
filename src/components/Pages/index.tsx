@@ -7,6 +7,10 @@ interface pageList {
     type: string
 }
 
+interface props {
+    
+}
+
 function Pages() {
     const pagesList: pageList[] = [{
         img: "https://hubabuba.space/55-55-55-55-5555/assets/img/Agent_ID.png",

@@ -38,6 +38,7 @@ function Login({ setSettings }: props) {
                         setSettings(res.data.clientToken)
                     })
                     .catch(err => {
+
                         const { type } = err.response.data;
                         setErrorLoading(type)
                         setTimeout(() => {
@@ -47,9 +48,10 @@ function Login({ setSettings }: props) {
                     });
 
             } else if (isValidPass(Pass) && isValidLogin(Login) && !LoginType) {
-                axios.post("https://hubabuba.space/api/me", { login: Login, pass: Pass })
-                    .then(res => console.log(res.data))
+                axios.post("https://hubabuba.space/api/loginAccount", { login: Login, pass: Pass })
+                    .then(res => setSettings(res.data.clientToken))
                     .catch(err => {
+                        console.log(err.response)
                         const { type } = err.response.data;
                         setErrorLoading(type)
                         setTimeout(() => {
@@ -84,7 +86,7 @@ function Login({ setSettings }: props) {
 
 
                 <p className={style.title}>Password</p>
-                <input className={ErrorLoading != 0 ? style.inpError : style.inp} type="password" value={Pass} onChange={(event) => setPass(event.target.value)} />
+                <input className={(ErrorLoading != 0 && ErrorLoading != -1) ? style.inpError : style.inp} type="password" value={Pass} onChange={(event) => setPass(event.target.value)} />
 
                 {LoginType ? <> <p className={style.title}>Password Replay</p>
                     <input className={style.inp} type="password" value={PassRep} onChange={(event) => setPassRep(event.target.value)} /></> : null}

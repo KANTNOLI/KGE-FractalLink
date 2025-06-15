@@ -1,0 +1,152 @@
+.body {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 153px);
+    height: 100%;
+
+    overflow-y: scroll;
+
+
+    .header {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        width: 100%;
+        height: 150px;
+
+        border-bottom: 3px solid #50c878;
+        box-sizing: border-box;
+
+        .headerAvatar {
+            border-radius: 20px;
+            margin-left: 12.5px;
+            width: 125px;
+            height: 125px;
+            border: 3px solid #50c878;
+        }
+
+        .headerContent {
+            padding: 13px;
+            padding-left: 20px;
+            width: calc(100% - 200px);
+            min-width: 0px;
+            height: 100%;
+
+            box-sizing: border-box;
+            overflow: hidden;
+
+            .headerNick {
+                font-size: 24px;
+                min-width: 0%;
+                width: fit-content;
+            }
+
+            .headerBio {
+                font-size: 14px;
+                margin-top: 5px;
+                width: 100%;
+
+                max-height: 100%;
+                color: rgb(165, 165, 165);
+                overflow-y: scroll;
+
+            }
+
+        }
+
+        .headerEdit {
+            cursor: pointer;
+            margin-left: 15px;
+        }
+    }
+
+    .footer {
+        display: flex;
+        flex: 1;
+
+        .achievements {
+            width: 50%;
+            min-height: fit-content;
+            height: 100%;
+            border-right: 3px solid #50c878;
+
+            .info {
+                margin-top: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+                width: 100%;
+                height: 60px;
+                border-bottom: 3px solid #50c878;
+            }
+
+            .achieve {
+                display: flex;
+                align-items: center;
+                font-size: 24px;
+                width: 100%;
+                min-height: 80px;
+                max-height: 100%;
+                border-bottom: 3px solid #50c878;
+
+                .achieveImg {
+                    margin-left: 10px;
+                    border-radius: 10px;
+                    border: 2px solid #50c878;
+                    width: 60px;
+                    height: 60px;
+                }
+
+                .achieveTitle {
+                    margin: 10px;
+                    max-width: calc(100% - 100px);
+                    font-size: 18px;
+                }
+            }
+        }
+
+        .statistics {
+            width: 50%;
+            min-height: fit-content;
+            height: 100%;
+
+            .info {
+                margin-top: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+                width: 100%;
+                height: 60px;
+                border-bottom: 3px solid #50c878;
+            }
+
+            .stat {
+                display: flex;
+                align-items: center;
+                font-size: 24px;
+                width: 100%;
+                min-height: 80px;
+                max-height: 100%;
+                border-bottom: 3px solid #50c878;
+
+                .statImg {
+                    margin-left: 10px;
+                    border-radius: 10px;
+                    border: 2px solid #50c878;
+                    width: 60px;
+                    height: 60px;
+                }
+
+                .statTitle {
+                    margin: 10px;
+                    max-width: calc(100% - 100px);
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}
