@@ -8,10 +8,10 @@ interface pageList {
 }
 
 interface props {
-    
+    type: boolean
 }
 
-function Pages() {
+function Pages({ type }: props) {
     const pagesList: pageList[] = [{
         img: "https://hubabuba.space/55-55-55-55-5555/assets/img/Agent_ID.png",
         title: "Agent ID",
@@ -41,13 +41,16 @@ function Pages() {
 
 
     return (
-        <section className={style.nav}>
+        <section className={type ? style.nav : style.nav2}>
             {pagesList.map((page, id) => (
                 <Link key={id} to={`/?55-55-55-55-5555=${page.type}`} className={style.page}>
                     <img src={page.img} alt={page.title} />
-                    <p>
-                        {page.title}
-                    </p>
+                    {
+                        type ? <p>
+                            {page.title}
+                        </p> : ""
+                    }
+
                 </Link>
             ))}
 

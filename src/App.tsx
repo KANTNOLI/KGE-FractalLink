@@ -58,16 +58,17 @@ function App() {
     switch (searchParams.get('55-55-55-55-5555')) {
       case "Agent_ID":
         return (<>
-          <Pages />
+          <Pages type={true} />
           <Profile />
         </>)
       case "LiveTunnel":
         return (<>
-          <Pages />
+          <Pages type={false} />
           <Messenger />
         </>)
       default:
-        return <>5</>
+        return <>
+          <Pages type={true} />asd</>
     }
   }
 
