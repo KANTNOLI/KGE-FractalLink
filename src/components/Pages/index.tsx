@@ -14,23 +14,23 @@ interface props {
 function Pages({ type }: props) {
     const pagesList: pageList[] = [{
         img: "https://hubabuba.space/55-55-55-55-5555/assets/img/Agent_ID.png",
-        title: "Agent ID",
+        title: "Профиль",
         type: "Agent_ID"
     }, {
         img: "https://hubabuba.space/55-55-55-55-5555/assets/img/LiveTunnel.png",
-        title: "Live Tunnel",
+        title: "Чаты",
         type: "LiveTunnel"
     }, {
         img: "https://hubabuba.space/55-55-55-55-5555/assets/img/HackCred.png",
-        title: "Hack Cred",
+        title: "Достижения",
         type: "HackCred"
     }, {
         img: "https://hubabuba.space/55-55-55-55-5555/assets/img/HeatMap.png",
-        title: "Heat Map",
+        title: "Статистика",
         type: "HeatMap"
     }, {
         img: "https://hubabuba.space/55-55-55-55-5555/assets/img/TrustList.png",
-        title: "Trust List",
+        title: "Друзья",
         type: "TrustList"
     }]
     const [searchParams] = useSearchParams();

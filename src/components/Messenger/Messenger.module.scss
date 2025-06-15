@@ -6,9 +6,10 @@
     overflow-y: scroll;
 
     .nav {
-        width: 150px;
+        width: 200px;
         height: 100%;
         border-right: 3px solid #50c878;
+        overflow-y: scroll;
 
         .page {
             margin-top: 20px;
@@ -75,33 +76,92 @@
 
 
         .chat {
+            position: relative;
+            overflow: auto;
             width: 100%;
-            background-color: blue;
             flex: 1;
 
-            .messMe {
-                position: relative;
-                border-radius: 10px;
-                padding: 10px;
-                margin: 10px;
+            .line1 {
+                display: flex;
+                justify-content: end;
 
-                min-width: 200px;
-                width: fit-content;
-                max-width: 50%;
-                height: 50px;
-                background-color: #1e5c3a;
-                border: 3px solid #50c878;
 
-                .messMeSend {
-                    background-color: green;
+                .messMe {
+                    position: relative;
+                    border-radius: 20px;
+                    padding: 10px;
+                    margin: 10px;
+
+                    min-width: 200px;
+                    width: fit-content;
+                    max-width: 50%;
+
+                    min-height: 50px;
+                    height: fit-content;
+
+                    background-color: #1e5c3a;
+                    border: 3px solid #50c878;
+
+                    .messMeSend {
+                        font-size: 20px;
+                    }
+
+                    .messMeTime {
+                        position: absolute;
+                        bottom: 5px;
+                        right: 10px;
+                    }
                 }
 
-                .messMeTime {
-                    position: absolute;
-                    bottom: 5px;
-                    right: 5px;
+
+
+            }
+
+
+
+            .line2 {
+                display: flex;
+                justify-content: start;
+
+                .messHe {
+                    position: relative;
+                    border-radius: 20px;
+                    padding: 10px;
+                    margin: 10px;
+
+                    min-width: 200px;
+                    width: fit-content;
+                    max-width: 50%;
+
+                    min-height: 50px;
+                    height: fit-content;
+
+                    background-color: #1e5c3a;
+                    border: 3px solid #50c878;
+
+                    .messHeSend {
+                        font-size: 20px;
+                    }
+
+                    .messHeTime {
+                        position: absolute;
+                        bottom: 5px;
+                        right: 10px;
+                    }
                 }
             }
+
+        }
+
+        .input{
+            padding: 5px;
+            height: 50px;
+            
+            font-size: 24px;
+            border: 3px solid black;
+
+            color: black;
+            box-sizing: border-box;
         }
     }
 

@@ -15,48 +15,21 @@ function Profile() {
             </header>
             <footer className={style.footer}>
                 <div className={style.achievements}>
-                    <div className={style.info}>achievements</div>
-                    <div className={style.achieve}>
-                        <img className={style.achieveImg} src="https://hubabuba.space/temp/cookies.jpg" alt="" />
-                        <p className={style.achieveTitle}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique officia aspernatur, ducimus voluptates reprehenderit in adipisci fugiat facere minus nemo iure voluptatum beatae a explicabo asperiores dolorum odit deleniti quod!</p>
-                    </div>
-                    <div className={style.achieve}>
-                        <img className={style.achieveImg} src="https://hubabuba.space/temp/cookies.jpg" alt="" />
-                        <p className={style.achieveTitle}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique officia aspernatur, ducimus voluptates reprehenderit in adipisci fugiat facere minus nemo iure voluptatum beatae a explicabo asperiores dolorum odit deleniti quod!</p>
-                    </div>
+                    <div className={style.info}>Достижения</div>
                     <div className={style.achieve}>
                         <img className={style.achieveImg} src="https://hubabuba.space/temp/cookies.jpg" alt="" />
                         <p className={style.achieveTitle}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique officia aspernatur, ducimus voluptates reprehenderit in adipisci fugiat facere minus nemo iure voluptatum beatae a explicabo asperiores dolorum odit deleniti quod!</p>
                     </div>
 
-                    <div className={style.achieve}>
-                        <img className={style.achieveImg} src="https://hubabuba.space/temp/cookies.jpg" alt="" />
-                        <p className={style.achieveTitle}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique officia aspernatur, ducimus voluptates reprehenderit in adipisci fugiat facere minus nemo iure voluptatum beatae a explicabo asperiores dolorum odit deleniti quod!</p>
-                    </div>
 
-                    <div className={style.achieve}>
-                        <img className={style.achieveImg} src="https://hubabuba.space/temp/cookies.jpg" alt="" />
-                        <p className={style.achieveTitle}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique officia aspernatur, ducimus voluptates reprehenderit in adipisci fugiat facere minus nemo iure voluptatum beatae a explicabo asperiores dolorum odit deleniti quod!</p>
-                    </div>
-                    <div className={style.achieve}>
-                        <img className={style.achieveImg} src="https://hubabuba.space/temp/cookies.jpg" alt="" />
-                        <p className={style.achieveTitle}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique officia aspernatur, ducimus voluptates reprehenderit in adipisci fugiat facere minus nemo iure voluptatum beatae a explicabo asperiores dolorum odit deleniti quod!</p>
-                    </div>
                 </div>
                 <div className={style.statistics}>
-                    <div className={style.info}>statistics</div>
+                    <div className={style.info}>Статистика</div>
                     <div className={style.stat}>
                         <img className={style.statImg} src="https://hubabuba.space/temp/cookies.jpg" alt="" />
                         <p className={style.statTitle}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique officia aspernatur, ducimus voluptates reprehenderit in adipisci fugiat facere minus nemo iure voluptatum beatae a explicabo asperiores dolorum odit deleniti quod!</p>
                     </div>
-                    <div className={style.stat}>
-                        <img className={style.statImg} src="https://hubabuba.space/temp/cookies.jpg" alt="" />
-                        <p className={style.statTitle}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique officia aspernatur, ducimus voluptates reprehenderit in adipisci fugiat facere minus nemo iure voluptatum beatae a explicabo asperiores dolorum odit deleniti quod!</p>
-                    </div>
-                    <div className={style.stat}>
-                        <img className={style.statImg} src="https://hubabuba.space/temp/cookies.jpg" alt="" />
-                        <p className={style.statTitle}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique officia aspernatur, ducimus voluptates reprehenderit in adipisci fugiat facere minus nemo iure voluptatum beatae a explicabo asperiores dolorum odit deleniti quod!</p>
-                    </div>
+
                 </div>
             </footer>
         </section >);

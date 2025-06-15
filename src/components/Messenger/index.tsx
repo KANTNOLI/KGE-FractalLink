@@ -48,12 +48,75 @@ function Messenger() {
                     <p className={style.headerTitle}>KANTNOLI</p>
                 </header>
                 <div className={style.chat}>
-                    <div className={style.messMe}>
-                        <p className={style.messMeSend}>sadasdasddasasdasddsasdads</p>
-                        <p className={style.messMeTime}>12:12</p>
+                    <div className={style.line1}>
+                        <div className={style.messMe}>
+                            <p className={style.messMeSend}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque commodi ad, numquam earum ex expedita aliquid nulla dolorem</p>
+                            <p className={style.messMeTime}>12:12</p>
+                        </div>
+                    </div>
+
+                    <div className={style.line1}>
+                        <div className={style.messMe}>
+                            <p className={style.messMeSend}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque commodi ad, numquam earum ex expedita aliquid nulla dolorem</p>
+                            <p className={style.messMeTime}>12:12</p>
+                        </div>
+                    </div>
+
+
+                    <div className={style.line2}>
+                        <div className={style.messHe}>
+                            <p className={style.messHeSend}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque commodi ad, numquam earum ex expedita aliquid nulla dolorem</p>
+                            <p className={style.messHeTime}>12:12</p>
+                        </div>
+                    </div>
+                    
+                    <div className={style.line1}>
+                        <div className={style.messMe}>
+                            <p className={style.messMeSend}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque commodi ad, numquam earum ex expedita aliquid nulla dolorem</p>
+                            <p className={style.messMeTime}>12:12</p>
+                        </div>
+                    </div>
+
+                    <div className={style.line2}>
+                        <div className={style.messHe}>
+                            <p className={style.messHeSend}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque commodi ad, numquam earum ex expedita aliquid nulla dolorem</p>
+                            <p className={style.messHeTime}>12:12</p>
+                        </div>
+                    </div>
+
+                    <div className={style.line2}>
+                        <div className={style.messHe}>
+                            <p className={style.messHeSend}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque commodi ad, numquam earum ex expedita aliquid nulla dolorem</p>
+                            <p className={style.messHeTime}>12:12</p>
+                        </div>
+                    </div>
+
+                    <div className={style.line2}>
+                        <div className={style.messHe}>
+                            <p className={style.messHeSend}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque commodi ad, numquam earum ex expedita aliquid nulla dolorem</p>
+                            <p className={style.messHeTime}>12:12</p>
+                        </div>
+                    </div>
+                    <div className={style.line2}>
+                        <div className={style.messHe}>
+                            <p className={style.messHeSend}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque commodi ad, numquam earum ex expedita aliquid nulla dolorem</p>
+                            <p className={style.messHeTime}>12:12</p>
+                        </div>
+                    </div>
+                    <div className={style.line2}>
+                        <div className={style.messHe}>
+                            <p className={style.messHeSend}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque commodi ad, numquam earum ex expedita aliquid nulla dolorem</p>
+                            <p className={style.messHeTime}>12:12</p>
+                        </div>
+                    </div>
+                    <div className={style.line2}>
+                        <div className={style.messHe}>
+                            <p className={style.messHeSend}>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque commodi ad, numquam earum ex expedita aliquid nulla dolorem</p>
+                            <p className={style.messHeTime}>12:12</p>
+                        </div>
                     </div>
                 </div>
-                <input type="text" />
+                <input className={style.input} type="text" />
             </main>
         </section>
     );

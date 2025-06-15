@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Profile from "./components/Profile";
 import Messenger from "./components/Messenger";
+import Achievements from "./components/Achievements";
 
 interface KeySettingsItf {
   OSRequiredApp: boolean,
@@ -65,6 +66,11 @@ function App() {
         return (<>
           <Pages type={false} />
           <Messenger />
+        </>)
+      case "HackCred":
+        return (<>
+          <Pages type={true} />
+          <Achievements />
         </>)
       default:
         return <>
