@@ -10,6 +10,7 @@ import Profile from "./components/Profile";
 import Messenger from "./components/Messenger";
 import Achievements from "./components/Achievements";
 import Statistics from "./components/Statistics";
+import Friends from "./components/Friends";
 
 interface KeySettingsItf {
   OSRequiredApp: boolean,
@@ -77,6 +78,11 @@ function App() {
         return (<>
           <Pages type={true} />
           <Statistics />
+        </>)
+      case "TrustList":
+        return (<>
+          <Pages type={true} />
+          <Friends />
         </>)
       default:
         return <>
