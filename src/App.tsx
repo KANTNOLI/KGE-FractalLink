@@ -9,6 +9,7 @@ import axios from "axios";
 import Profile from "./components/Profile";
 import Messenger from "./components/Messenger";
 import Achievements from "./components/Achievements";
+import Statistics from "./components/Statistics";
 
 interface KeySettingsItf {
   OSRequiredApp: boolean,
@@ -71,6 +72,11 @@ function App() {
         return (<>
           <Pages type={true} />
           <Achievements />
+        </>)
+      case "HeatMap":
+        return (<>
+          <Pages type={true} />
+          <Statistics />
         </>)
       default:
         return <>

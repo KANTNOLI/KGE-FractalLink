@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import style from "./Achievements.module.scss"
+import { useEffect, useState } from "react"
+import style from "./Statistics.module.scss"
 
-function Achievements() {
+function Statistics() {
     const [updateState, setUpdateState] = useState<boolean>(true)
     const [activeAchi, setactiveAchi] = useState<number[]>([1, 2])
 
@@ -75,7 +75,7 @@ function Achievements() {
     return (
         <section className={style.body}>
             <div className={style.header}>
-                <p className={style.headerTitle}>Ваши Достижения (0/10)</p>
+                <p className={style.headerTitle}>Ваша Статистика</p>
                 {<button onClick={() => HandleSaveData()} className={!updateState ? style.saveOff : style.saveOn}>сохранить</button>}
             </div>
 
@@ -98,4 +98,4 @@ function Achievements() {
         </section>);
 }
 
-export default Achievements;
+export default Statistics;
