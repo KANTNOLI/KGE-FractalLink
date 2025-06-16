@@ -148,7 +148,6 @@
 
                 font-size: 20px;
 
-                cursor: pointer;
                 padding: 3px 10px;
                 color: black;
                 border: 2px solid #000000;
@@ -174,10 +173,15 @@
                 width: fit-content;
                 height: 80px;
                 align-items: center;
-                text-align: center;
-                margin-right: 150px;
                 margin-left: 10px;
                 font-size: 26px;
+
+                span{
+                    align-items: end;
+                    margin-left: 15px;
+                    font-size: 16px;
+                    color: #B87333;
+                }
             }
 
 
