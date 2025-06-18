@@ -62,7 +62,7 @@ function App() {
       case "Agent_ID":
         return (<>
           <Pages type={true} />
-          <Profile />
+          <Profile type={true} />
         </>)
       case "LiveTunnel":
         return (<>

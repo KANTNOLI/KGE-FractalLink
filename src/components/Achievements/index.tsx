@@ -1,31 +1,38 @@
 import { useEffect, useState } from "react";
 import style from "./Achievements.module.scss"
+import axios from "axios";
+
+interface KeySettingsItf {
+    OSRequiredApp: boolean,
+    language: "ru" | "eu",
+    clientToken: string
+}
+const KEY_SETTINGS = "643f11b661aa625c"
+
+
+interface AchievesIntf {
+    desc: string
+    id: number
+    img: string
+    title: string
+}
+
+interface UserAchievesIntf {
+    allAchieve: AchievesIntf[]
+    earned_achievements: number[]
+    selected_achievements: number[]
+}
+
+
+
 
 function Achievements() {
+    const [Settings, setSettings] = useState<KeySettingsItf>(JSON.parse(localStorage.getItem(KEY_SETTINGS) || "{}"))
     const [updateState, setUpdateState] = useState<boolean>(true)
-    const [activeAchi, setactiveAchi] = useState<number[]>([1, 2])
 
-    const AchieveArray = [{
-        id: 0,
-        url: "https://hubabuba.space/temp/cookies.jpg",
-        desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam commodi aliquid soluta suscipit ipsam, quis, consectetur quasi veritatis quaerat eligendi reiciendis nisi ea nostrum qui ipsa nihil facilis aspernatur quia."
-    }, {
-        id: 1,
-        url: "https://hubabuba.space/temp/cookies.jpg",
-        desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam commodi aliquid soluta suscipit ipsam, quis, consectetur quasi veritatis quaerat eligendi reiciendis nisi ea nostrum qui ipsa nihil facilis aspernatur quia."
-    }, {
-        id: 2,
-        url: "https://hubabuba.space/temp/cookies.jpg",
-        desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam commodi aliquid soluta suscipit ipsam, quis, consectetur quasi veritatis quaerat eligendi reiciendis nisi ea nostrum qui ipsa nihil facilis aspernatur quia."
-    }, {
-        id: 3,
-        url: "https://hubabuba.space/temp/cookies.jpg",
-        desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam commodi aliquid soluta suscipit ipsam, quis, consectetur quasi veritatis quaerat eligendi reiciendis nisi ea nostrum qui ipsa nihil facilis aspernatur quia."
-    }, {
-        id: 4,
-        url: "https://hubabuba.space/temp/cookies.jpg",
-        desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam commodi aliquid soluta suscipit ipsam, quis, consectetur quasi veritatis quaerat eligendi reiciendis nisi ea nostrum qui ipsa nihil facilis aspernatur quia."
-    }]
+    const [AllAchieves, setAllAchieves] = useState<AchievesIntf[]>([])
+    const [HaveAchieves, setHaveAchieves] = useState<number[]>([])
+    const [activeAchi, setactiveAchi] = useState<number[]>([])
 
     // готово
     const stateActive = (id: number) => {
@@ -63,9 +70,16 @@ function Achievements() {
     }
 
     useEffect(() => {
-        console.log("render",);
+        axios.get("https://hubabuba.space/api/getAchieves", {
+            headers: { Authorization: `Bearer ${Settings.clientToken}` }
+        }).then(res => {
+            const temp: UserAchievesIntf = res.data as UserAchievesIntf
+            setAllAchieves(temp.allAchieve)
+            setHaveAchieves(temp.earned_achievements)
+            setactiveAchi(temp.selected_achievements)
+        });
 
-    }, [activeAchi, updateState])
+    }, [])
 
     // Получение всех возможных
     // ПОлучение полученых
@@ -79,21 +93,22 @@ function Achievements() {
                 {<button onClick={() => HandleSaveData()} className={!updateState ? style.saveOff : style.saveOn}>сохранить</button>}
             </div>
 
-            {
-                AchieveArray.map((achi, id) => (
-                    <div key={id} className={style.list}>
-                        <div className={style.line}>
-                            <img className={style.lineImg} src="https://hubabuba.space/temp/cookies.jpg" alt="" />
 
-                            <div className={style.lineDesc}>
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam commodi aliquid soluta suscipit ipsam, quis, consectetur quasi veritatis quaerat eligendi reiciendis nisi ea nostrum qui ipsa nihil facilis aspernatur quia.
-                            </div>
+            <div className={style.list}>
+                {AllAchieves.map((achi, id) => (
+                    <div key={id} className={style.line}>
+                        <img className={style.lineImg} src="https://hubabuba.space/temp/cookies.jpg" alt="" />
 
-                            <div onClick={() => HandleChooseState(id)} className={stateActive(achi.id)}></div>
+                        <div className={style.lineDesc}>
+                            {achi.desc}
+                            {achi.title}
                         </div>
+
+                        <div onClick={() => HandleChooseState(achi.id)} className={stateActive(achi.id)}></div>
                     </div>
-                ))
-            }
+                ))}
+            </div>
+
 
         </section>);
 }
