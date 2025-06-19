@@ -30,44 +30,44 @@
             font-size: 20px;
             width: 200px;
             height: 50px;
-          
+
             cursor: pointer;
             padding: 3px 10px;
             color: black;
             border: 2px solid #000000;
             border-radius: 5px;
-                  
+
             font-weight: normal;
             transition: .1s ease;
 
             margin-right: 20px;
-          }
-                  
-          .saveOff:active {
+        }
+
+        .saveOff:active {
             color: white;
             border: 2px solid white;
             background-color: black;
             font-weight: normal;
             margin-right: 20px;
-          }
+        }
 
-          .saveOn {
+        .saveOn {
             opacity: .5;
             font-size: 20px;
             width: 200px;
             height: 50px;
-          
+
             cursor: pointer;
             padding: 3px 10px;
             color: black;
             border: 2px solid #000000;
             border-radius: 5px;
-                  
+
             font-weight: normal;
             transition: .1s ease;
 
             margin-right: 20px;
-          }
+        }
     }
 
     .list {
@@ -81,26 +81,33 @@
             height: 150px;
             border-bottom: 3px solid #50c878;
 
-            
+
             .lineImg {
                 border: 3px solid #50c878;
-                border-radius: 20px;
+                border-radius: 30px;
                 margin-left: 20px;
-                width: 130px;
-                height: 130px;
+                width: 110px;
+                height: 110px;
             }
+
+            .lineTitle {
+                margin-left: 20px;
+                max-width: calc(40% - 200px);
+                max-height: 90%;
+                font-size: 20px;
+            }
+
 
             .lineDesc {
                 margin-left: 20px;
-                max-width: calc(80% - 200px);
-                word-break: break-all;
+                max-width: calc(70% - 200px);
                 max-height: 90%;
-                font-size: 20px;
+                font-size: 18px;
 
                 overflow-y: scroll;
             }
 
-            .chooseOn{
+            .chooseOn {
                 margin-left: 20px;
                 cursor: pointer;
                 display: block;
@@ -110,7 +117,67 @@
                 background-color: #50c878;
                 border: 3px solid #1e5c3a;
             }
-            .chooseOff{
+
+            .chooseOff {
+                margin-left: 20px;
+                cursor: pointer;
+                display: block;
+                border-radius: 50%;
+                width: 25px;
+                height: 25px;
+                border: 3px solid #50c878;
+
+                transition: .2s ease;
+            }
+        }
+
+        .line2 {
+            opacity: .5;
+            display: flex;
+            align-items: center;
+
+            width: 100%;
+            height: 150px;
+            border-bottom: 3px solid #50c878;
+
+
+            .lineImg {
+                border: 3px solid #50c878;
+                border-radius: 30px;
+                margin-left: 20px;
+                width: 110px;
+                height: 110px;
+            }
+
+            .lineTitle {
+                margin-left: 20px;
+                max-width: calc(40% - 200px);
+                max-height: 90%;
+                font-size: 20px;
+            }
+
+
+            .lineDesc {
+                margin-left: 20px;
+                max-width: calc(80% - 200px);
+                max-height: 90%;
+                font-size: 18px;
+
+                overflow-y: scroll;
+            }
+
+            .chooseOn {
+                margin-left: 20px;
+                cursor: pointer;
+                display: block;
+                border-radius: 50%;
+                width: 25px;
+                height: 25px;
+                background-color: #50c878;
+                border: 3px solid #1e5c3a;
+            }
+
+            .chooseOff {
                 margin-left: 20px;
                 cursor: pointer;
                 display: block;

@@ -79,6 +79,11 @@ function Achievements() {
             setactiveAchi(temp.selected_achievements)
         });
 
+
+        console.log(AllAchieves);
+        console.log(HaveAchieves);
+        console.log(activeAchi);
+
     }, [])
 
     // Получение всех возможных
@@ -89,22 +94,27 @@ function Achievements() {
     return (
         <section className={style.body}>
             <div className={style.header}>
-                <p className={style.headerTitle}>Ваши Достижения (0/10)</p>
+                <p className={style.headerTitle}>Ваши Достижения ({HaveAchieves.length}/{AllAchieves.length})</p>
                 {<button onClick={() => HandleSaveData()} className={!updateState ? style.saveOff : style.saveOn}>сохранить</button>}
             </div>
 
 
             <div className={style.list}>
                 {AllAchieves.map((achi, id) => (
-                    <div key={id} className={style.line}>
+                    <div key={id} className={HaveAchieves.includes(id) ? style.line : style.line2}>
                         <img className={style.lineImg} src="https://hubabuba.space/temp/cookies.jpg" alt="" />
 
-                        <div className={style.lineDesc}>
-                            {achi.desc}
+                        <div className={style.lineTitle}>
                             {achi.title}
                         </div>
 
-                        <div onClick={() => HandleChooseState(achi.id)} className={stateActive(achi.id)}></div>
+
+                        <div className={style.lineDesc}>
+                            {achi.desc}
+                        </div>
+
+                        {HaveAchieves.includes(id) ? (<div onClick={() => HandleChooseState(achi.id)} className={stateActive(achi.id)}></div>) : ""}
+
                     </div>
                 ))}
             </div>
