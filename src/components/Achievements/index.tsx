@@ -70,6 +70,7 @@ function Achievements() {
     }
 
     useEffect(() => {
+        setSettings(JSON.parse(localStorage.getItem(KEY_SETTINGS) || "{}"))
         axios.get("https://hubabuba.space/api/getAchieves", {
             headers: { Authorization: `Bearer ${Settings.clientToken}` }
         }).then(res => {

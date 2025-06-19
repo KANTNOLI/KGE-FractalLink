@@ -13,7 +13,10 @@ function Messenger() {
     const [Settings, setSettings] = useState<KeySettingsItf>(JSON.parse(localStorage.getItem(KEY_SETTINGS) || "{}"))
     const [FriendsChat, setFriendsChat] = useState<number[]>([])
 
+
     useEffect(() => {
+        setSettings(JSON.parse(localStorage.getItem(KEY_SETTINGS) || "{}"))
+
         axios.get("https://hubabuba.space/api/getFriendChatList", {
             headers: { Authorization: `Bearer ${Settings.clientToken}` }
         }).then(res => {
@@ -28,7 +31,7 @@ function Messenger() {
                 <div className={style.page}>
                     <img className={style.pageImg} src="https://hubabuba.space/temp/cookies.jpg" alt="" />
                     <p>
-                        Аноним
+                        Аноним {FriendsChat}
                     </p>
                 </div>
 
@@ -76,7 +79,7 @@ function Messenger() {
                     </div>
 
                 </div>
-                <input className={style.input} type="text" />
+                <input className={style.input} placeholder="Сюда можно что-то писать? " type="text" />
             </main>
         </section>
     );
