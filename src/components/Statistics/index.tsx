@@ -42,6 +42,11 @@ interface VisualStateIntf {
 }
 
 
+function formatNumber(n: number): string {
+    return n < 10 ? `0${n}` : `${n}`;
+}
+
+
 
 function Statistics() {
     const [Settings, setSettings] = useState<KeySettingsItf>(JSON.parse(localStorage.getItem(KEY_SETTINGS) || "{}"))
@@ -130,7 +135,7 @@ function Statistics() {
             const firstLog = new Date(temp.first_login)
 
             newState[0].desc = `${temp.achievements_count + 1}`
-            newState[1].desc = `${firstLog.getDate()}:0${firstLog.getMonth() + 1}:${firstLog.getFullYear()} ${firstLog.getHours()}:${firstLog.getMinutes()}`
+            newState[1].desc = `${firstLog.getDate()}:${formatNumber(firstLog.getMonth() + 1)}:${firstLog.getFullYear()} ${formatNumber(firstLog.getHours())}:${formatNumber(firstLog.getMinutes())}`
             newState[2].desc = `00:00:00`
 
 

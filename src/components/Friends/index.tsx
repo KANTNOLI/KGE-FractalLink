@@ -97,30 +97,31 @@ function Friends() {
 
             <div className={style.userList}>
                 {
-                    UserList.map((user, id) => {
-                        if (HaveFriends) {
-                            return (
-                                <div key={id} className={style.userListYes}>
-                                    <img className={style.userListYesImg} src="https://hubabuba.space/temp/cookies.jpg" alt="" />
-                                    <p className={style.userListYesTitle}>{user.login} <span>Huesos 12.12.2002</span></p>
-                                    <input type="text" className={style.userRename} placeholder="set tag" />
-                                    {/* true ? style.userListYesBtn : style.userListYesOffBtn */}
-                                    <button className={style.userListYesBtn}>Сохранить</button>
-                                    <button className={style.userListYesBtn}>Удалить</button>
-                                </div>)
-                        } else {
-                            return (
-                                <div key={id} className={style.userListNone}>
-                                    <img className={style.userListNoneImg} src="https://hubabuba.space/temp/cookies.jpg" alt="" />
-                                    <p className={style.userListNoneTitle}>KANTNOLI</p>
+                    // UserList.map((user, id) => {
+                    //     if (HaveFriends) {
+                    //         return (
+                    //             <div key={id} className={style.userListYes}>
+                    //                 <img className={style.userListYesImg} src="https://hubabuba.space/temp/cookies.jpg" alt="" />
+                    //                 <p className={style.userListYesTitle}>{user.login} <span>Huesos 12.12.2002</span></p>
+                    //                 <input type="text" className={style.userRename} placeholder="set tag" />
+                    //                 {/* true ? style.userListYesBtn : style.userListYesOffBtn */}
+                    //                 <button className={style.userListYesBtn}>Сохранить</button>
+                    //                 <button className={style.userListYesBtn}>Удалить</button>
+                    //             </div>)
+                    //     } else {
+                    //         return (
+                    //             <div key={id} className={style.userListNone}>
+                    //                 <img className={style.userListNoneImg} src="https://hubabuba.space/temp/cookies.jpg" alt="" />
+                    //                 <p className={style.userListNoneTitle}>KANTNOLI</p>
 
-                                    <button className={style.userListNoneBtn}>Добавить</button>
-                                </div>)
-                        }
-                    })
+                    //                 <button className={style.userListNoneBtn}>Добавить</button>
+                    //             </div>)
+                    //     }
+                    // })
                 }
 
-
+                <p className={style.time}>Поиск друзей отключен на момент разработки чатов!</p>
+                <p className={style.time2}>Следите за новостями в нашем ТГ канале! <a target="_blank" href="https://t.me/Multiverse_Dark_Lands">КЛИКНИТЕ СЮДА</a></p>
 
             </div>
         </section>
