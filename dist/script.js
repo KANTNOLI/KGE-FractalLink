@@ -16697,7 +16697,7 @@ const isValidLogin = (login) => {
 function Login({ setSettings }) {
   const Form2 = reactExports.useRef(null);
   const [Login2, setLogin] = reactExports.useState("");
-  const [Email, setEmail] = reactExports.useState("zahargysev02@gmail.com");
+  const [Email, setEmail] = reactExports.useState("");
   const [Pass, setPass] = reactExports.useState("");
   const [PassRep, setPassRep] = reactExports.useState("");
   const [ErrorLoading, setErrorLoading] = reactExports.useState(-1);

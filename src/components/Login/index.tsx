@@ -19,7 +19,7 @@ function Login({ setSettings }: props) {
     const Form = useRef<HTMLFormElement>(null)
 
     const [Login, setLogin] = useState<string>("")
-    const [Email, setEmail] = useState<string>("zahargysev02@gmail.com")
+    const [Email, setEmail] = useState<string>("")
     const [Pass, setPass] = useState<string>("")
     const [PassRep, setPassRep] = useState<string>("")
 
