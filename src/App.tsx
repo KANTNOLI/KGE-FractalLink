@@ -58,47 +58,48 @@ function App() {
   }, [Settings])
 
   const routing = () => {
+    console.log(searchParams.get('55-55-55-55-5555'));
+
     switch (searchParams.get('55-55-55-55-5555')) {
-      case "Agent_ID":
-        return (<>
+      case "AgentID":
+        return (<section className={style.body}>
           <Pages type={true} />
           <Profile type={true} />
-        </>)
+        </section>)
       case "LiveTunnel":
-        return (<>
+        return (<section className={style.body}>
           <Pages type={false} />
           <Messenger />
-        </>)
+        </section>)
       case "HackCred":
-        return (<>
+        return (<section className={style.body}>
           <Pages type={true} />
           <Achievements />
-        </>)
+        </section>)
       case "HeatMap":
-        return (<>
+        return (<section className={style.body}>
           <Pages type={true} />
           <Statistics />
-        </>)
+        </section>)
       case "TrustList":
-        return (<>
+        return (<section className={style.body}>
           <Pages type={true} />
           <Friends />
-        </>)
+        </section>)
       default:
-        return <>
-          <Pages type={true} />asd</>
+        return <section className={style.body}>
+          <Pages type={true} /></section>
     }
   }
 
   return (
-    <section className={style.body}>
-      {SkipLogin ?
-        <>
-          {routing()}
-        </> : <Login setSettings={(value: string) => setSettings((before) => ({ ...before, clientToken: value }))} />}
-
-    </section>
+    SkipLogin ?
+      routing() :
+      <Login setSettings={(value: string) => setSettings((before) => ({ ...before, clientToken: value }))} />
   )
 }
+
+// 
+
 
 export default App

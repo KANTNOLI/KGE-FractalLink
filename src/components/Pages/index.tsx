@@ -1,4 +1,4 @@
-import { Link, useSearchParams } from "react-router";
+import { Link } from "react-router";
 import style from "./Pages.module.scss"
 
 interface pageList {
@@ -15,7 +15,7 @@ function Pages({ type }: props) {
     const pagesList: pageList[] = [{
         img: "https://hubabuba.space/55-55-55-55-5555/assets/img/Agent_ID.png",
         title: "Профиль",
-        type: "Agent_ID"
+        type: "AgentID"
     }, {
         img: "https://hubabuba.space/55-55-55-55-5555/assets/img/LiveTunnel.png",
         title: "Чаты",
@@ -33,12 +33,6 @@ function Pages({ type }: props) {
         title: "Друзья",
         type: "TrustList"
     }]
-    const [searchParams] = useSearchParams();
-
-
-    console.log(searchParams.get("55-55-55-55-5555"));
-
-
 
     return (
         <section className={type ? style.nav : style.nav2}>

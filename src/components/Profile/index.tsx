@@ -30,6 +30,7 @@ function Profile({ type, id }: props) {
 
 
     useEffect(() => {
+        setSettings(JSON.parse(localStorage.getItem(KEY_SETTINGS) || "{}"))
         axios.post("https://hubabuba.space/api/getProfile", { type: type, id: id }, {
             headers: { Authorization: `Bearer ${Settings.clientToken}` }
         }).then(res => {
@@ -58,7 +59,7 @@ function Profile({ type, id }: props) {
                     {!Profile ? "Загрузка" : Profile.achievements.map((achieve, id) => (
                         <div key={id} className={style.achieve}>
                             <img className={style.achieveImg} src="https://hubabuba.space/temp/cookies.jpg" alt="" />
-                            <p className={style.achieveTitle}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique officia aspernatur, ducimus voluptates reprehenderit in adipisci fugiat facere minus nemo iure voluptatum beatae a explicabo asperiores dolorum odit deleniti quod!</p>
+                            <p className={style.achieveTitle}>{achieve}</p>
                         </div>
                     ))}
 
@@ -69,7 +70,7 @@ function Profile({ type, id }: props) {
                     {!Profile ? "Загрузка" : Profile.achievements.map((achieve, id) => (
                         <div key={id} className={style.stat}>
                             <img className={style.statImg} src="https://hubabuba.space/temp/cookies.jpg" alt="" />
-                            <p className={style.statTitle}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique officia aspernatur, ducimus voluptates reprehenderit in adipisci fugiat facere minus nemo iure voluptatum beatae a explicabo asperiores dolorum odit deleniti quod!</p>
+                            <p className={style.statTitle}>{achieve}!</p>
                         </div>
                     ))}
 

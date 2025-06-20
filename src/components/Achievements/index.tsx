@@ -24,8 +24,6 @@ interface UserAchievesIntf {
 }
 
 
-
-
 function Achievements() {
     const [Settings, setSettings] = useState<KeySettingsItf>(JSON.parse(localStorage.getItem(KEY_SETTINGS) || "{}"))
     const [updateState, setUpdateState] = useState<boolean>(true)

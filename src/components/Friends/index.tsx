@@ -78,6 +78,9 @@ function Friends() {
 
             setUserList(usersSearch || [])
             setHaveFriends(false)
+            console.log(HaveFriends);
+            console.log(UserList);
+            
         }
 
         setNeedUpdate(true)

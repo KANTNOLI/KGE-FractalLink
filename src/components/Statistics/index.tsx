@@ -138,10 +138,10 @@ function Statistics() {
             newState[1].desc = `${firstLog.getDate()}:${formatNumber(firstLog.getMonth() + 1)}:${firstLog.getFullYear()} ${formatNumber(firstLog.getHours())}:${formatNumber(firstLog.getMinutes())}`
             newState[2].desc = `00:00:00`
 
-
+            setVisualResult(before => before)
         });
 
-    }, [activeAchi, updateState])
+    }, [updateState])
 
     // Получение всех возможных
     // ПОлучение полученых
